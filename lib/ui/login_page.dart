@@ -105,7 +105,7 @@ class _LoginPageState extends State<LoginPage>
 
         if (_formType == FormType.register) {
           Firestore.instance
-              .collection('tenants')
+              .collection('patients')
               .document()
               .setData({'userId': userId, 'name': _name, 'email': _email});
         }
@@ -157,10 +157,10 @@ class _LoginPageState extends State<LoginPage>
                 Padding(
                   padding: EdgeInsets.only(top: 75.0),
                   child: new Image(
-                      width: 250.0,
-                      height: 114.0,
+                      width: 150.0,
+                      height: 150.0,
                       fit: BoxFit.fill,
-                      image: new AssetImage('assets/img/login_logo.png')),
+                      image: new AssetImage('assets/img/login.png')),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 20.0),
@@ -434,106 +434,6 @@ class _LoginPageState extends State<LoginPage>
                 )
               ],
             ),
-            Padding(
-              padding: EdgeInsets.only(top: 10.0),
-              child: FlatButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Forgot Password?",
-                    style: TextStyle(
-                        decoration: TextDecoration.underline,
-                        color: Colors.white,
-                        fontSize: 16.0,
-                        fontFamily: "WorkSansMedium"),
-                  )),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 10.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      gradient: new LinearGradient(
-                          colors: [
-                            Colors.white10,
-                            Colors.white,
-                          ],
-                          begin: const FractionalOffset(0.0, 0.0),
-                          end: const FractionalOffset(1.0, 1.0),
-                          stops: [0.0, 1.0],
-                          tileMode: TileMode.clamp),
-                    ),
-                    width: 100.0,
-                    height: 1.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 15.0, right: 15.0),
-                    child: Text(
-                      "Or",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16.0,
-                          fontFamily: "WorkSansMedium"),
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      gradient: new LinearGradient(
-                          colors: [
-                            Colors.white,
-                            Colors.white10,
-                          ],
-                          begin: const FractionalOffset(0.0, 0.0),
-                          end: const FractionalOffset(1.0, 1.0),
-                          stops: [0.0, 1.0],
-                          tileMode: TileMode.clamp),
-                    ),
-                    width: 100.0,
-                    height: 1.0,
-                  ),
-                ],
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(top: 10.0, right: 40.0),
-                  child: GestureDetector(
-                    onTap: () => showInSnackBar("Facebook button pressed"),
-                    child: Container(
-                      padding: const EdgeInsets.all(15.0),
-                      decoration: new BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.white,
-                      ),
-                      child: new Icon(
-                        FontAwesomeIcons.facebookF,
-                        color: Color(0xFF0084ff),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 10.0),
-                  child: GestureDetector(
-                    onTap: () => showInSnackBar("Google button pressed"),
-                    child: Container(
-                      padding: const EdgeInsets.all(15.0),
-                      decoration: new BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.white,
-                      ),
-                      child: new Icon(
-                        FontAwesomeIcons.google,
-                        color: Color(0xFF0084ff),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
           ],
         ),
       ),
@@ -559,7 +459,7 @@ class _LoginPageState extends State<LoginPage>
                     ),
                     child: Container(
                       width: 300.0,
-                      height: 360.0,
+                      height: 280.0,
                       child: Column(
                         children: <Widget>[
                           Padding(
@@ -677,55 +577,12 @@ class _LoginPageState extends State<LoginPage>
                               ),
                             ),
                           ),
-                          Container(
-                            width: 250.0,
-                            height: 1.0,
-                            color: Colors.grey[400],
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: 20.0,
-                                bottom: 20.0,
-                                left: 25.0,
-                                right: 25.0),
-                            child: TextFormField(
-                              key: new Key('confirm_password'),
-                              validator: (val) => val.isEmpty
-                                  ? 'Confirm password can\'t be empty.'
-                                  : null,
-                              controller: signupConfirmPasswordController,
-                              obscureText: _obscureTextSignupConfirm,
-                              style: TextStyle(
-                                  fontFamily: "WorkSansSemiBold",
-                                  fontSize: 16.0,
-                                  color: Colors.black),
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                icon: Icon(
-                                  FontAwesomeIcons.lock,
-                                  color: Colors.black,
-                                ),
-                                hintText: "Confirmation",
-                                hintStyle: TextStyle(
-                                    fontFamily: "WorkSansSemiBold",
-                                    fontSize: 16.0),
-                                suffixIcon: GestureDetector(
-                                  onTap: _toggleSignupConfirm,
-                                  child: Icon(
-                                    FontAwesomeIcons.eye,
-                                    size: 15.0,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
                         ],
                       ),
                     ),
                   ),
                   Container(
-                      margin: EdgeInsets.only(top: 340.0),
+                      margin: EdgeInsets.only(top: 250.0),
                       decoration: new BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(5.0)),
                         boxShadow: <BoxShadow>[

@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "252931797051",
-    "firebase_url": "https://remo-c7a94.firebaseio.com",
-    "project_id": "remo-c7a94",
-    "storage_bucket": "remo-c7a94.appspot.com"
+    "project_number": "290890417222",
+    "firebase_url": "https://remo-379b5.firebaseio.com",
+    "project_id": "remo-379b5",
+    "storage_bucket": "remo-379b5.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:252931797051:android:281fa6ce2412b469",
+        "mobilesdk_app_id": "1:290890417222:android:281fa6ce2412b469",
         "android_client_info": {
           "package_name": "com.example.remo"
         }
       },
       "oauth_client": [
         {
-          "client_id": "252931797051-cbsk42671lehe8gr7d22eviu3igl7hhl.apps.googleusercontent.com",
+          "client_id": "290890417222-h0ri1qrk9ajf77hejd2d5lth9g6r4ot6.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.remo",
@@ -23,13 +23,13 @@
           }
         },
         {
-          "client_id": "252931797051-vkkn2rsiloct65ajoh52ub0378o41leu.apps.googleusercontent.com",
+          "client_id": "290890417222-5jih8d69nqttupq61gljkdad6kvga97e.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCp8yxoyyZbEar4kcLIT0P-M_F7eMTOZUs"
+          "current_key": "AIzaSyB9v0Gru5nNzI1iRGhvZJA8AsM_Rk8KMqI"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "252931797051-vkkn2rsiloct65ajoh52ub0378o41leu.apps.googleusercontent.com",
+              "client_id": "290890417222-5jih8d69nqttupq61gljkdad6kvga97e.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
