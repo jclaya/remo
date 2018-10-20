@@ -5,8 +5,12 @@ import 'package:remo/ui/tabs/dashboard.dart' as _secondTab;
 import 'package:remo/ui/tabs/settings.dart' as _thirdTab;
 import 'package:remo/ui/screens/about.dart' as _aboutPage;
 import 'package:remo/ui/screens/support.dart' as _supportPage;
+import 'package:remo/ui/auth.dart';
 
-void main() => runApp(new MaterialApp(
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
       title: 'Flutter Starter',
       theme: new ThemeData(
           primarySwatch: Colors.blueGrey,
@@ -31,7 +35,9 @@ void main() => runApp(new MaterialApp(
       // routes: <String, WidgetBuilder> {
       //   '/about': (BuildContext context) => new _aboutPage.About(),
       // }
-    ));
+    );
+  }
+}
 
 class FromRightToLeft<T> extends MaterialPageRoute<T> {
   FromRightToLeft({WidgetBuilder builder, RouteSettings settings})
@@ -67,6 +73,10 @@ class FromRightToLeft<T> extends MaterialPageRoute<T> {
 }
 
 class Tabs extends StatefulWidget {
+  Tabs({this.auth, this.onSignOut});
+  final BaseAuth auth;
+  final VoidCallback onSignOut;
+
   @override
   TabsState createState() => new TabsState();
 }
@@ -178,6 +188,7 @@ class TabsState extends State<Tabs> {
               leading: new Icon(Icons.exit_to_app),
               title: new Text('Sign Out'),
               onTap: () {
+                _signOut();
                 Navigator.pop(context);
               }),
         ],
@@ -186,6 +197,15 @@ class TabsState extends State<Tabs> {
   void onTap(int tab) {
     _tabController.jumpToPage(tab);
   }
+
+  void _signOut() async {
+    try {
+      await widget.auth.signOut();
+      widget.onSignOut();
+    } catch (e) {
+      print(e);
+    }
+}
 
   void onTabChanged(int tab) {
     setState(() {

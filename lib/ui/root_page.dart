@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:remo/ui/auth.dart';
 import 'package:remo/ui/login_page.dart';
-//import 'package:remo/ui/bills/home/HomePage.dart';
+import 'package:remo/ui/home_page.dart';
 
 class RootPage extends StatefulWidget {
   RootPage({Key key, this.auth}) : super(key: key);
@@ -44,16 +44,11 @@ class _RootPageState extends State<RootPage> {
           auth: widget.auth,
           onSignIn: () => _updateAuthStatus(AuthStatus.signedIn),
         );
+
       case AuthStatus.signedIn:
-        return new LoginPage(
-          title: 'Flutter Login',
-          auth: widget.auth,
-          onSignIn: () => _updateAuthStatus(AuthStatus.signedIn),
-        );
-      // case AuthStatus.signedIn:
-      //   return new HomePageBody(
-      //       auth: widget.auth,
-      //       onSignOut: () => _updateAuthStatus(AuthStatus.notSignedIn));
+        return new Tabs(
+            auth: widget.auth,
+            onSignOut: () => _updateAuthStatus(AuthStatus.notSignedIn));
     }
   }
 }
