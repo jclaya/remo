@@ -2,23 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:remo/Theme.dart' as Theme;
 
-class AppointmentPage extends StatelessWidget {
+class AppointmentPage extends StatefulWidget {
   
-  final _formKey = GlobalKey<FormState>();
+
+  _AppointmentPageState createState() => new _AppointmentPageState();
+}
+
+class _AppointmentPageState extends State<AppointmentPage> {
+    final _formKey = GlobalKey<FormState>();
   
+  List<String> _genders = <String>['Male', 'Female'];
+  String _gender = 'Male';
   @override
   Widget build(BuildContext context) => new Scaffold(
-        body: Form(
+    body: Form(
       key: _formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           TextFormField(
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Please enter some text';
-              }
-            },
+            
+          ),
+            DropdownButtonHideUnderline(
+            child: new DropdownButton<String>(
+               value: _gender,
+                isDense: true,
+                onChanged: (String newValue) {
+                          setState(() {
+                            _gender = newValue;
+                          });
+                },
+                items: _genders.map((String value) {
+                          return new DropdownMenuItem<String>(
+                            value: value,
+                            child: new Text(value),
+                          );
+                        }).toList(),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16.0),
