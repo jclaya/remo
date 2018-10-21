@@ -35,7 +35,8 @@ class Home extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => AppointmentPage()),
+                  MaterialPageRoute(
+                      builder: (context) => AppointmentPage()),
                 );
               })
         ],
