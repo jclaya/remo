@@ -23,9 +23,12 @@ class _AppointmentPageState extends State<AppointmentPage> {
           child: Column(
               children: <Widget>[
                 Text('HAVE AN APPOINTMENT HERE'),
-                Text('AGE'),
                 TextFormField(
-                      
+                  decoration: const InputDecoration(
+                    icon: const Icon(Icons.accessibility),
+                    hintText: 'AGE',
+                    labelText: 'age   ',
+                  ),
                 ),
                 Text('GENDER'),
             DropdownButtonHideUnderline(
