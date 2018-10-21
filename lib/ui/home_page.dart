@@ -7,7 +7,16 @@ import 'package:remo/ui/screens/about.dart' as _aboutPage;
 import 'package:remo/ui/screens/support.dart' as _supportPage;
 import 'package:remo/ui/auth.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  HomePage({this.auth, this.onSignOut});
+  final BaseAuth auth;
+  final VoidCallback onSignOut;
+
+  @override
+  _HomePageState createState() => new _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -17,7 +26,7 @@ class HomePage extends StatelessWidget {
           scaffoldBackgroundColor: Colors.white,
           primaryColor: Colors.blueGrey,
           backgroundColor: Colors.white),
-      home: new Tabs(),
+      home: new Tabs(auth: widget.auth, onSignOut: widget.onSignOut),
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
           case '/about':
@@ -185,12 +194,28 @@ class TabsState extends State<Tabs> {
               }),
           new Divider(),
           new ListTile(
-              leading: new Icon(Icons.exit_to_app),
-              title: new Text('Sign Out'),
-              onTap: () {
-                _signOut();
-                Navigator.pop(context);
-              }),
+            leading: new Icon(Icons.exit_to_app),
+            title: new Text('Sign Out'),
+            onTap: () => showDialog(
+                context: context,
+                child: new AlertDialog(
+                  title: new Text("Are you sure?"),
+                  content: new Text("Do you wish to signout?"),
+                  actions: <Widget>[
+                    FlatButton(
+                        child: const Text('NO'),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        }),
+                    FlatButton(
+                        child: const Text('YES'),
+                        onPressed: () {
+                          _signOut();
+                          Navigator.pop(context);
+                        })
+                  ],
+                )),
+          ),
         ],
       )));
 
@@ -205,7 +230,7 @@ class TabsState extends State<Tabs> {
     } catch (e) {
       print(e);
     }
-}
+  }
 
   void onTabChanged(int tab) {
     setState(() {

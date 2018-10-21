@@ -46,7 +46,7 @@ class _RootPageState extends State<RootPage> {
         );
 
       case AuthStatus.signedIn:
-        return new Tabs(
+        return new HomePage(
             auth: widget.auth,
             onSignOut: () => _updateAuthStatus(AuthStatus.notSignedIn));
     }
