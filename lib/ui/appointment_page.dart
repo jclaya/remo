@@ -15,14 +15,19 @@ class _AppointmentPageState extends State<AppointmentPage> {
   String _gender = 'Male';
   @override
   Widget build(BuildContext context) => new Scaffold(
-    body: Form(
-      key: _formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          TextFormField(
-            
-          ),
+    body: new Column(
+        
+      children: <Widget>[ 
+        Form(
+          key: _formKey,
+          child: Column(
+              children: <Widget>[
+                Text('HAVE AN APPOINTMENT HERE'),
+                Text('AGE'),
+                TextFormField(
+                      
+                ),
+                Text('GENDER'),
             DropdownButtonHideUnderline(
             child: new DropdownButton<String>(
                value: _gender,
@@ -52,13 +57,15 @@ class _AppointmentPageState extends State<AppointmentPage> {
                       .showSnackBar(SnackBar(content: Text('Processing Data')));
                 }
               },
-              child: Text('Submit'),
+              child: Text('Get an APPOINTMENT'),
             ),
           ),
         ],
       ),
-    )
-      );
+    )],
+    ), 
+   
+  );
 }
 
 /*
