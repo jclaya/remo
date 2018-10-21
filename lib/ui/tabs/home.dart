@@ -32,7 +32,12 @@ class Home extends StatelessWidget {
                       fontFamily: "WorkSansBold"),
                 ),
               ),
-              onPressed: () => new AppointmentPage())
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AppointmentPage()),
+                );
+              })
         ],
       ));
 }
