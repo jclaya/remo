@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:remo/Theme.dart' as Theme;
 
+import 'package:remo/ui/appointment_page.dart';
+
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) => new Container(
@@ -8,8 +10,12 @@ class Home extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          new Icon(Icons.home, size: 150.0, color: Colors.black12),
-          new Text('Home tab content'),
+          new Image(
+              width: 150.0,
+              height: 150.0,
+              fit: BoxFit.fill,
+              image: new AssetImage('assets/img/sad.png')),
+          new Text('You have no appointments yet'),
           new MaterialButton(
               color: Theme.Colors.appBarGradientEnd,
               highlightColor: Colors.transparent,
@@ -19,14 +25,14 @@ class Home extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(
                     vertical: 10.0, horizontal: 42.0),
                 child: Text(
-                  "LOGIN",
+                  "APPOINT ME",
                   style: TextStyle(
                       color: Theme.Colors.appBarGradientStart,
                       fontSize: 25.0,
                       fontFamily: "WorkSansBold"),
                 ),
               ),
-              onPressed: () => print('ssss'))
+              onPressed: () => new AppointmentPage())
         ],
       ));
 }
