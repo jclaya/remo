@@ -652,10 +652,4 @@ class _LoginPageState extends State<LoginPage>
       _obscureTextSignup = !_obscureTextSignup;
     });
   }
-
-  void _toggleSignupConfirm() {
-    setState(() {
-      _obscureTextSignupConfirm = !_obscureTextSignupConfirm;
-    });
-  }
 }
